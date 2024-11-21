@@ -9,11 +9,9 @@ public class BaseTest {
     protected static WebDriver driver;
 
     protected  void getDriver(){
+        System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
-        WebDriverManager.chromedriver().setup();
+        options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
-
-        driver = WebDriverManager.chromedriver().create();
     }
 }
